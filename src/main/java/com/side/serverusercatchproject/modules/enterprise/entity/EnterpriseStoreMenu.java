@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.enterprise.entity;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
 import com.side.serverusercatchproject.util.status.MenuStatus;
 import jakarta.persistence.*;
@@ -13,7 +14,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "ENTERPRISE_STORE_MENUS_LIST")
-public class EnterpriseStoreMenu {
+public class EnterpriseStoreMenu extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

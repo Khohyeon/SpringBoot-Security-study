@@ -1,6 +1,7 @@
 package com.side.serverusercatchproject.modules.file.entity;
 
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.util.status.FileStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "FILES")
-public class File {
+public class File extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

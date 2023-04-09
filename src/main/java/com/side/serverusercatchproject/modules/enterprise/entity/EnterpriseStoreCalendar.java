@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.enterprise.entity;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Table(name = "ENTERPRISE_STORE_CALENDAR_LIST")
-public class EnterpriseStoreCalendar {
+public class EnterpriseStoreCalendar extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유 번호")
@@ -39,6 +40,6 @@ public class EnterpriseStoreCalendar {
     @Comment("브레이크 타임 마감 시간")
     private LocalDateTime endBreakTime;
 
-//    @Comment("영업 여부")
-//    private Boolean isOpen;
+    @Comment("영업 여부")
+    private Boolean isOpen;
 }

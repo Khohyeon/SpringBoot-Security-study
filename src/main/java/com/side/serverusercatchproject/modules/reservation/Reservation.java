@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.reservation;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreInfo;
 import com.side.serverusercatchproject.modules.user.User;
 import com.side.serverusercatchproject.util.status.ReservationStatus;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Table(name = "RESERVATIONS")
-public class Reservation {
+public class Reservation extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.category.entity;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.category.enums.CategoryStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "CATEGORIES")
-public class Category {
+public class Category extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

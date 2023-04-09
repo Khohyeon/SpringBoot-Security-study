@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.user;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.util.status.UserStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,7 +16,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "USERS")
-public class User {
+public class User extends BaseTime {
     @Id
     @Comment("고유번호")
     private Integer id;

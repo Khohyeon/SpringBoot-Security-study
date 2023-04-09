@@ -12,9 +12,13 @@ import java.time.LocalDateTime;
 
 public record BannerDTO(
         Integer id,
+
         FileInfoDTO fileInfo,
+
         String startTime,
+
         String endTime,
+
         String status
 ) {
 }

@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.enterprise.entity;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
 import com.side.serverusercatchproject.util.status.StoreStatus;
 import jakarta.persistence.*;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Table(name = "ENTERPRISE_STORE_INFO_LIST")
-public class EnterpriseStoreInfo {
+public class EnterpriseStoreInfo extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

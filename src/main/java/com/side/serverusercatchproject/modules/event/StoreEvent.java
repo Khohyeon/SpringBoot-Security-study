@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.event;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreMenu;
 import com.side.serverusercatchproject.util.status.StoreEventStatus;
 import jakarta.persistence.*;
@@ -13,7 +14,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "ENTERPRISE_STORES_EVENTS_LIST")
-public class StoreEvent {
+public class StoreEvent extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

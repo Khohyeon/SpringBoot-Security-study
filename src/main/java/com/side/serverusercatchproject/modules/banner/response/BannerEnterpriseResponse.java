@@ -1,20 +1,16 @@
 package com.side.serverusercatchproject.modules.banner.response;
 
-import com.side.serverusercatchproject.modules.banner.dto.BannerDTO;
-import com.side.serverusercatchproject.modules.banner.entity.Banner;
 import com.side.serverusercatchproject.modules.banner.entity.BannerSort;
+import com.side.serverusercatchproject.modules.enterprise.dto.EnterpriseStoreInfoDTO;
 import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreInfo;
 import jakarta.persistence.ManyToOne;
 import org.hibernate.annotations.Comment;
 
-public record BannerSortResponse(
+public record BannerEnterpriseResponse(
         Integer id,
 
-        BannerDTO banner,
+        BannerSort bannerSort,
 
-        String name,
-
-        String color
-)
-{
+        EnterpriseStoreInfoDTO store
+) {
 }

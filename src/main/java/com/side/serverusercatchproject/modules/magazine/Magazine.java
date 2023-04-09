@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.magazine;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreInfo;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
 import com.side.serverusercatchproject.util.status.MagazineStatus;
@@ -14,7 +15,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "MAGAZINE_LIST")
-public class Magazine {
+public class Magazine extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

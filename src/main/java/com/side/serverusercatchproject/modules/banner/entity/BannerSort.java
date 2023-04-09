@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.banner.entity;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "BANNER_SORT_LIST")
-public class BannerSort {
+public class BannerSort extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.notice;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import org.hibernate.annotations.Comment;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "NOTICES")
-public class Notice {
+public class Notice extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

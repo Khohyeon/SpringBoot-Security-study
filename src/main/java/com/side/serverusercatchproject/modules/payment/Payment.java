@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.payment;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.reservation.Reservation;
 import com.side.serverusercatchproject.util.status.PaymentStatus;
 import com.side.serverusercatchproject.util.type.PaymentType;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Table(name = "PAYMENTS")
-public class Payment {
+public class Payment extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")

@@ -33,14 +33,14 @@ public class NoticeService {
         return noticeRepository.save(request.toEntity());
     }
 
-    public String isValidation(NoticeUpdateRequest request) {
-        try {
-            NoticeStatus.valueOf(request.status());
-        }catch (Exception e) {
-            return "공지사항 상태 값이 이상이 있습니다. 확인해주세요.";
-        }
-        return "OK";
-    }
+//    public String isValidation(NoticeUpdateRequest request) {
+//        try {
+//            NoticeStatus.valueOf(request.status());
+//        }catch (Exception e) {
+//            return "공지사항 상태 값이 이상이 있습니다. 확인해주세요.";
+//        }
+//        return "OK";
+//    }
 
     @Transactional
     public Notice update(NoticeUpdateRequest request, Notice notice) {

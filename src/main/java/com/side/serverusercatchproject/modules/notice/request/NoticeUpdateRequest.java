@@ -1,5 +1,7 @@
 package com.side.serverusercatchproject.modules.notice.request;
 
+import com.side.serverusercatchproject.common.ValueOfEnum;
+import com.side.serverusercatchproject.modules.notice.NoticeStatus;
 import jakarta.validation.constraints.NotBlank;
 
 public record NoticeUpdateRequest(
@@ -7,7 +9,8 @@ public record NoticeUpdateRequest(
     String title,
     @NotBlank(message = "공지사항 내용을 입력해주세요.")
     String content,
-    String status
+    @ValueOfEnum(enumClass = NoticeStatus.class, message = "공지사항 상태 값이 이상이 있습니다. 확인해주세요.")
+    NoticeStatus status
 ) {
 
 }

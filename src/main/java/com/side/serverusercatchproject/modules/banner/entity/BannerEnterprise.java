@@ -1,5 +1,6 @@
 package com.side.serverusercatchproject.modules.banner.entity;
 
+import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreInfo;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import org.hibernate.annotations.Comment;
 @Setter
 @NoArgsConstructor
 @Table(name = "BANNER_ENTERPRISE_LIST")
-public class BannerEnterprise {
+public class BannerEnterprise extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")
