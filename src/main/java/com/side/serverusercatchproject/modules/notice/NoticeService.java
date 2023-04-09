@@ -46,7 +46,7 @@ public class NoticeService {
     public Notice update(NoticeUpdateRequest request, Notice notice) {
         notice.setTitle(request.title());
         notice.setContent(request.content());
-        notice.setStatus(NoticeStatus.valueOf(request.status()));
+        notice.setStatus(request.status());
         return noticeRepository.save(notice);
     }
 

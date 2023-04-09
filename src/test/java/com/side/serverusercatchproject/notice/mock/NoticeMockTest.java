@@ -206,7 +206,7 @@ public class NoticeMockTest {
 
         // given
         int id = 0;
-        NoticeUpdateRequest request = new NoticeUpdateRequest("", "내용", "WAIT");
+        NoticeUpdateRequest request = new NoticeUpdateRequest("", "내용", NoticeStatus.WAIT);
 
         // When
         ResultActions perform = this.mvc.perform(
@@ -232,9 +232,7 @@ public class NoticeMockTest {
 
         // given
         int id = 0;
-        NoticeUpdateRequest request = new NoticeUpdateRequest("제목", "내용", "EJFLIEJSFLIJ");
-        given(this.noticeService.isValidation(request))
-                .willReturn("FAIL");
+        NoticeUpdateRequest request = new NoticeUpdateRequest("제목", "내용", NoticeStatus.valueOf("asdasdasdsdgood"));
 
         // When
         ResultActions perform = this.mvc.perform(
@@ -249,7 +247,7 @@ public class NoticeMockTest {
         perform
                 .andExpect(status().isBadRequest())
                 .andDo(print())
-                .andExpect(jsonPath("$.detail").value("FAIL"))
+                .andExpect(jsonPath("$.detail").value("공지사항 상태 값이 이상이 있습니다. 확인해주세요."))
         ;
     }
 
@@ -259,8 +257,7 @@ public class NoticeMockTest {
 
         // given
         int id = 0;
-        NoticeUpdateRequest request = new NoticeUpdateRequest("제목", "내용", "WAIT");
-        given(this.noticeService.isValidation(request)).willReturn("OK");
+        NoticeUpdateRequest request = new NoticeUpdateRequest("제목", "내용", NoticeStatus.WAIT);
         given(this.noticeService.getNotice(id)).willReturn(Optional.empty());
 
         // When
@@ -285,8 +282,7 @@ public class NoticeMockTest {
 
         // given
         int id = 1;
-        NoticeUpdateRequest request = new NoticeUpdateRequest("제목", "내용", "WAIT");
-        given(this.noticeService.isValidation(request)).willReturn("OK");
+        NoticeUpdateRequest request = new NoticeUpdateRequest("제목", "내용", NoticeStatus.WAIT);
 
         Optional<Notice> optional = Optional.of(new Notice(1, "공지사항(1)", "내용 1", NoticeStatus.WAIT));
         given(this.noticeService.getNotice(id)).willReturn(optional);

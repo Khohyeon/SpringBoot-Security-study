@@ -68,10 +68,10 @@ public class NoticeController {
             throw new Exception400(error.getAllErrors().get(0).getDefaultMessage());
         }
 
-        var result = noticeService.isValidation(request);
-        if (!result.equals("OK")) {
-            throw new Exception400(result);
-        }
+//        var result = noticeService.isValidation(request);
+//        if (!result.equals("OK")) {
+//            throw new Exception400(result);
+//        }
 
         var optionalNotice = noticeService.getNotice(id);
         if (optionalNotice.isEmpty()) {
