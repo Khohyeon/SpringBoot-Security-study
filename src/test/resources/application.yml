@@ -3,6 +3,7 @@ spring:
     init:
       mode: always
       data-locations: classpath:static/data/data.sql
+      encoding: utf-8
   jpa:
     hibernate:
       ddl-auto: create

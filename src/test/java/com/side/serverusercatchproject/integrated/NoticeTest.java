@@ -1,4 +1,4 @@
-package com.side.serverusercatchproject.modules.integrated;
+package com.side.serverusercatchproject.integrated;
 
 import org.junit.jupiter.api.Test;
 

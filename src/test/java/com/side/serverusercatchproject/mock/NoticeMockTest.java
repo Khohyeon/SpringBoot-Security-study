@@ -1,4 +1,4 @@
-package com.side.serverusercatchproject.notice.mock;
+package com.side.serverusercatchproject.mock;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.side.serverusercatchproject.modules.notice.*;
