@@ -1,19 +1,20 @@
 package shop.mtcoding.securityapp.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import shop.mtcoding.securityapp.dto.ResponseDTO;
 import shop.mtcoding.securityapp.dto.UserRequest;
-import shop.mtcoding.securityapp.model.User;
-import shop.mtcoding.securityapp.model.UserRepository;
+import shop.mtcoding.securityapp.dto.UserResponse;
+import shop.mtcoding.securityapp.service.UserService;
 
 @RequiredArgsConstructor
 @Controller
 public class HelloController {
+
+    private final UserService userService;
 
     @GetMapping("/")
     public ResponseEntity<?> hello() {
@@ -31,8 +32,9 @@ public class HelloController {
     }
 
     @PostMapping("/join")
-    public String join() {
-
-        return "redirect:/";
+    public ResponseEntity<?> join(UserRequest.JoinDto joinDto) {
+        UserResponse.JoinDto response = userService.회원가입(joinDto);
+        ResponseDTO<?> responseDTO = new ResponseDTO<>().data(response);
+        return ResponseEntity.ok().body(responseDTO);
     }
 }

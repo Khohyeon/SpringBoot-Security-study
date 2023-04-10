@@ -19,7 +19,7 @@ public class User {
     private String password;
     private String email;
     private String role; // User, Manager, ADMIN
-        private Boolean status; //ture, false
+    private Boolean status; //ture, false
 
     private LocalDateTime createdAt; // LocalDateTime -> Timestamp 로 DB에 insert 된다.
     private LocalDateTime updateAt;
