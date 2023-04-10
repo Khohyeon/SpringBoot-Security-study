@@ -59,6 +59,7 @@ public class NoticeRepositoryTest {
     }
 
     @Test
+    @Transactional
     void insertAndDelete() {
         Notice notice = setUp("공지사항333", "내용333", NoticeStatus.WAIT);
         Optional<Notice> findNotice = this.noticeRepository.findById(notice.getId());

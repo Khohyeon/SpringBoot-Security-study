@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -35,6 +36,7 @@ public class EnterpriseRepositoryTest {
 
 
     @Test
+    @Transactional
     void selectAll() {
         var enterprises = enterpriseRepository.findAll();
         Assertions.assertNotEquals(enterprises.size(), 0);
@@ -45,6 +47,7 @@ public class EnterpriseRepositoryTest {
 
 
     @Test
+    @Transactional
     void selectAndUpdate() {
         var optionalEnterprise = findEnterprise("aaa");
 
@@ -64,6 +67,7 @@ public class EnterpriseRepositoryTest {
 
 
     @Test
+    @Transactional
     void insertAndDelete() {
         var persist = setUp("ho","1235","aaasdfa@nate.com", RoleType.ACTIVE, "010-2342-5678");
         var findEnterprise = this.enterpriseRepository.findByUsername(persist.getUsername());

@@ -4,6 +4,7 @@ package com.side.serverusercatchproject.jpa.banner;
 import com.side.serverusercatchproject.modules.banner.entity.Banner;
 import com.side.serverusercatchproject.modules.banner.enums.BannerStatus;
 import com.side.serverusercatchproject.modules.banner.repository.BannerRepository;
+import com.side.serverusercatchproject.modules.file.dto.FileInfoDTO;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
 import com.side.serverusercatchproject.util.type.FileType;
 import org.junit.jupiter.api.Assertions;
@@ -36,6 +37,7 @@ public class BannerRepositoryTest {
     }
 
     @Test
+    @Transactional
     void selectAll() {
         List<Banner> bannerList = bannerRepository.findAll();
         Assertions.assertNotEquals(bannerList.size(), 0);

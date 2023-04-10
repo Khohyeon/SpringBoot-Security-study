@@ -18,6 +18,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
 public class MagazineRepositoryTest {
@@ -58,6 +60,25 @@ public class MagazineRepositoryTest {
             Assertions.assertEquals(merge.getContent(),"내용 222");
         } else {
             Assertions.assertNotNull(optionalMagazines.get());
+        }
+    }
+
+    @Test
+    @Transactional
+    void insertAndDelete() {
+        Magazine magazine = setUp("공지사항2", "내용2", null, null, MagazineStatus.WAIT);
+        Optional<Magazine> findMagazine = this.magazineRepository.findById(magazine.getId());
+
+        if(findMagazine.isPresent()) {
+            var result = findMagazine.get();
+            Assertions.assertEquals(result.getTitle(), "공지사항2");
+            entityManager.remove(magazine);
+            Optional<Magazine> deleteNotice = this.magazineRepository.findById(magazine.getId());
+            if (deleteNotice.isPresent()) {
+                Assertions.assertNull(deleteNotice.get());
+            }
+        } else {
+            Assertions.assertNotNull(findMagazine.get());
         }
     }
 
