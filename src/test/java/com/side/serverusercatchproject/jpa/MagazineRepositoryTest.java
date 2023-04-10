@@ -49,7 +49,7 @@ public class MagazineRepositoryTest {
 
         if(optionalMagazines.isPresent()) {
             var result = optionalMagazines.get();
-            Assertions.assertEquals(result.getTitle(),"공지 1");
+            Assertions.assertEquals(result.getTitle(),"공지사항");
 
             var content = "내용 222";
             result.setContent(content);

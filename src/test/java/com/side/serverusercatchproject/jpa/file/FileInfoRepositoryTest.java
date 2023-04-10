@@ -30,7 +30,7 @@ public class FileInfoRepositoryTest {
 
     @BeforeEach
     public void init(){
-        setUp(FileType.valueOf("image"));
+        setUp(FileType.Image);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class FileInfoRepositoryTest {
         Assertions.assertNotEquals(fileInfos.size(), 0);
 
         FileInfo fileInfo = fileInfos.get(0);
-        Assertions.assertEquals(fileInfo.getType(), "image");
+        Assertions.assertEquals(fileInfo.getType(), FileType.Image);
     }
 
 

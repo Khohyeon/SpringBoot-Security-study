@@ -5,6 +5,7 @@ import com.side.serverusercatchproject.modules.banner.entity.Banner;
 import com.side.serverusercatchproject.modules.banner.enums.BannerStatus;
 import com.side.serverusercatchproject.modules.banner.repository.BannerRepository;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
+import com.side.serverusercatchproject.util.type.FileType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,7 +51,7 @@ public class BannerRepositoryTest {
 
         if(findBanner.isPresent()) {
             var result = findBanner.get();
-            Assertions.assertEquals(result.getStartTime(),LocalDateTime.of(2021,01,01,0,00));
+            Assertions.assertEquals(result.getStartTime(),LocalDateTime.of(2023,04,9,9,00));
 
             var endTime = LocalDateTime.of(2022,01,01,0,00);
             result.setEndTime(endTime);

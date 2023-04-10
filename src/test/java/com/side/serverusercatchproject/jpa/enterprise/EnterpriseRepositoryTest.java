@@ -2,6 +2,7 @@ package com.side.serverusercatchproject.jpa.enterprise;
 
 import com.side.serverusercatchproject.modules.enterprise.entity.Enterprise;
 import com.side.serverusercatchproject.modules.enterprise.repository.EnterpriseRepository;
+import com.side.serverusercatchproject.util.status.EnterpriseStatus;
 import com.side.serverusercatchproject.util.type.RoleType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +30,7 @@ public class EnterpriseRepositoryTest {
 
     @BeforeEach
     public void init() {
-        setUp("aaa","1234","aaa@nate.com", "enterprise", "010-1234-5678");
+        setUp("aaa","1234","aaa@nate.com", RoleType.ACTIVE, "010-1234-5678");
     }
 
 
@@ -64,7 +65,7 @@ public class EnterpriseRepositoryTest {
 
     @Test
     void insertAndDelete() {
-        var persist = setUp("ho","1235","aaasdfa@nate.com", "enterprise", "010-2342-5678");
+        var persist = setUp("ho","1235","aaasdfa@nate.com", RoleType.ACTIVE, "010-2342-5678");
         var findEnterprise = this.enterpriseRepository.findByUsername(persist.getUsername());
 
         if (findEnterprise.isPresent()) {
@@ -80,21 +81,19 @@ public class EnterpriseRepositoryTest {
         }
     }
 
-
     private Optional<Enterprise> findEnterprise(String name) {
         return enterpriseRepository.findByUsername(name);
     }
 
 
-    private Enterprise setUp(String username, String password, String email, String roleType, String tel) {
+    private Enterprise setUp(String username, String password, String email, RoleType roleType, String tel) {
         var enterprise = new Enterprise();
         enterprise.setUsername(username);
         enterprise.setPassword(password);
         enterprise.setEmail(email);
-        enterprise.setRoleType(RoleType.valueOf(roleType));
+        enterprise.setRoleType(roleType);
         enterprise.setTel(tel);
         return this.entityManager.persist(enterprise);
     }
-
 
 }
