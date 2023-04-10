@@ -18,7 +18,8 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private Boolean status; //ture, false
+    private String role; // User, Manager, ADMIN
+        private Boolean status; //ture, false
 
     private LocalDateTime createdAt; // LocalDateTime -> Timestamp 로 DB에 insert 된다.
     private LocalDateTime updateAt;
@@ -34,11 +35,12 @@ public class User {
     }
 
     @Builder
-    public User(Long id, String username, String password, String email, Boolean status, LocalDateTime createdAt, LocalDateTime updateAt) {
+    public User(Long id, String username, String password, String email, String role, Boolean status, LocalDateTime createdAt, LocalDateTime updateAt) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.role = role;
         this.status = status;
         this.createdAt = createdAt;
         this.updateAt = updateAt;
