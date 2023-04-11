@@ -5,10 +5,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import shop.mtcoding.securityapp.dto.UserRequest;
 import shop.mtcoding.securityapp.dto.UserResponse;
+import shop.mtcoding.securityapp.core.jwt.MyJwtProvider;
 import shop.mtcoding.securityapp.model.User;
 import shop.mtcoding.securityapp.model.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -27,11 +29,25 @@ public class UserService {
      */
 
     @Transactional  // AOP의 횡단 관심사
-    public UserResponse.JoinDto 회원가입(UserRequest.JoinDto joinDto) {
+    public UserResponse.JoinDto 회원가입(UserRequest.JoinDTO joinDto) {
         String rawPassword = joinDto.getPassword();
         String encPassword = passwordEncoder.encode(rawPassword); // 60Byte
         joinDto.setPassword(encPassword);
         User userPS = userRepository.save(joinDto.toEntity());
         return new UserResponse.JoinDto(userPS);
+    }
+
+    @Transactional
+    public String 로그인(UserRequest.LoginDTO loginDto) {
+        Optional<User> userOP = userRepository.findByUsername(loginDto.getUsername());
+        User userPS = userOP.get();
+        if (userOP.isPresent()) {
+            if (passwordEncoder.matches(loginDto.getPassword(), userPS.getPassword())) {
+                String jwt = MyJwtProvider.create(userPS);
+                return jwt;
+            }
+            throw new RuntimeException("패스워드 틀렸어");
+        }
+        throw new RuntimeException("유저네임이 없어");
     }
 }
