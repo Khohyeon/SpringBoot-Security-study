@@ -8,6 +8,7 @@ import com.side.serverusercatchproject.modules.notice.Notice;
 import com.side.serverusercatchproject.modules.notice.NoticeRepository;
 import com.side.serverusercatchproject.modules.notice.NoticeStatus;
 import com.side.serverusercatchproject.util.status.MagazineStatus;
+import com.side.serverusercatchproject.util.type.FileType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,7 +33,10 @@ public class MagazineRepositoryTest {
 
     @BeforeEach
     public void init() {
-        setUp("공지사항", "내용", null, null, MagazineStatus.WAIT);
+        FileInfo fileInfo = new FileInfo();
+        fileInfo.setType(FileType.Image);
+        fileInfo.setId(3);
+        setUp("공지사항", "내용", fileInfo, null, MagazineStatus.WAIT);
     }
 
     @Test

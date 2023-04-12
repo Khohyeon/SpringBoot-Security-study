@@ -33,7 +33,11 @@ public class BannerRepositoryTest {
 
     @BeforeEach
     public void init() {
-        setUp(null, LocalDateTime.of(2023,04,9,9,00),LocalDateTime.of(2023,05,9,21,00), BannerStatus.WAIT);
+        FileInfo fileInfo = new FileInfo();
+        fileInfo.setType(FileType.Image);
+        fileInfo.setId(3);
+
+        setUp(fileInfo, LocalDateTime.of(2023,04,9,9,00),LocalDateTime.of(2023,05,9,21,00), BannerStatus.WAIT);
     }
 
     @Test

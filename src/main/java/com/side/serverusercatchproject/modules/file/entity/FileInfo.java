@@ -15,6 +15,7 @@ import org.hibernate.annotations.Comment;
 @Table(name = "FILE_INFO_LIST")
 public class FileInfo extends BaseTime {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("고유번호")
     private Integer id;
 
