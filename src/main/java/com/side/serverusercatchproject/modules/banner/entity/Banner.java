@@ -3,7 +3,9 @@ package com.side.serverusercatchproject.modules.banner.entity;
 import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
 import com.side.serverusercatchproject.modules.banner.enums.BannerStatus;
+import com.side.serverusercatchproject.util.StringToLocalDateTime;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +18,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "BANNERS")
 public class Banner extends BaseTime {
     @Id

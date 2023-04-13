@@ -1,11 +1,8 @@
 package com.side.serverusercatchproject.jpa.file;
 
-import com.side.serverusercatchproject.modules.file.entity.File;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
 import com.side.serverusercatchproject.modules.file.repository.FileInfoRepository;
-import com.side.serverusercatchproject.modules.file.repository.FileRepository;
-import com.side.serverusercatchproject.modules.notice.Notice;
-import com.side.serverusercatchproject.util.type.FileType;
+import com.side.serverusercatchproject.modules.file.enums.FileType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

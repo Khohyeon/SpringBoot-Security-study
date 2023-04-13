@@ -1,7 +1,7 @@
 package com.side.serverusercatchproject.modules.enterprise.entity;
 
 import com.side.serverusercatchproject.common.jpa.BaseTime;
-import com.side.serverusercatchproject.util.status.EnterpriseStatus;
+import com.side.serverusercatchproject.modules.enterprise.enums.EnterpriseStatus;
 import com.side.serverusercatchproject.util.type.RoleType;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public class Enterprise extends BaseTime {
 
     @Enumerated(EnumType.STRING)
     @Comment("권한")
-    private RoleType roleType;
+    private RoleType role;
 
     @Comment("기업이메일")
     private String email;

@@ -1,6 +1,9 @@
 package com.side.serverusercatchproject.modules.banner.request;
 
+import com.side.serverusercatchproject.modules.banner.entity.Banner;
+import com.side.serverusercatchproject.modules.banner.enums.BannerStatus;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
+import com.side.serverusercatchproject.util.StringToLocalDateTime;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,5 +20,7 @@ public record BannerSaveRequest(
         String endTime
 )
 {
-
+        public Banner toEntity() {
+            return new Banner(null, null, StringToLocalDateTime.parse(startTime), StringToLocalDateTime.parse(endTime), BannerStatus.WAIT);
+        }
 }

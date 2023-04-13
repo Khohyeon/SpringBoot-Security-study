@@ -1,7 +1,7 @@
 package com.side.serverusercatchproject.modules.notice.request;
 
-import com.side.serverusercatchproject.modules.notice.Notice;
-import com.side.serverusercatchproject.modules.notice.NoticeStatus;
+import com.side.serverusercatchproject.modules.notice.entity.Notice;
+import com.side.serverusercatchproject.modules.notice.enums.NoticeStatus;
 import jakarta.validation.constraints.NotBlank;
 
 public record NoticeSaveRequest (

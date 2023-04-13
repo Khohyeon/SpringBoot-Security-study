@@ -2,7 +2,7 @@ package com.side.serverusercatchproject.modules.enterprise.entity;
 
 import com.side.serverusercatchproject.common.jpa.BaseTime;
 import com.side.serverusercatchproject.modules.category.entity.Category;
-import com.side.serverusercatchproject.util.status.StoreCategoryStatus;
+import com.side.serverusercatchproject.modules.enterprise.enums.StoreCategoryStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

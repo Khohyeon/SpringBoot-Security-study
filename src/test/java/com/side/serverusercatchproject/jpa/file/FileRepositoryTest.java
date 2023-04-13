@@ -1,7 +1,6 @@
 package com.side.serverusercatchproject.jpa.file;
 
 import com.side.serverusercatchproject.modules.file.repository.FileRepository;
-import com.side.serverusercatchproject.modules.notice.NoticeRepository;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

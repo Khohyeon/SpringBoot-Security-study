@@ -2,16 +2,8 @@ package com.side.serverusercatchproject.jpa.banner;
 
 
 import com.side.serverusercatchproject.modules.banner.entity.Banner;
-import com.side.serverusercatchproject.modules.banner.entity.BannerEnterprise;
 import com.side.serverusercatchproject.modules.banner.entity.BannerSort;
-import com.side.serverusercatchproject.modules.banner.enums.BannerStatus;
-import com.side.serverusercatchproject.modules.banner.repository.BannerEnterpriseRepository;
-import com.side.serverusercatchproject.modules.banner.repository.BannerRepository;
 import com.side.serverusercatchproject.modules.banner.repository.BannerSortRepository;
-import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreInfo;
-import com.side.serverusercatchproject.modules.file.entity.FileInfo;
-import com.side.serverusercatchproject.modules.notice.Notice;
-import com.side.serverusercatchproject.modules.notice.NoticeStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,8 +14,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @DataJpaTest
