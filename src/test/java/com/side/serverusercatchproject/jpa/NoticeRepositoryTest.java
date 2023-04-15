@@ -1,8 +1,8 @@
 package com.side.serverusercatchproject.jpa;
 
-import com.side.serverusercatchproject.modules.notice.Notice;
-import com.side.serverusercatchproject.modules.notice.NoticeRepository;
-import com.side.serverusercatchproject.modules.notice.NoticeStatus;
+import com.side.serverusercatchproject.modules.notice.entity.Notice;
+import com.side.serverusercatchproject.modules.notice.repository.NoticeRepository;
+import com.side.serverusercatchproject.modules.notice.enums.NoticeStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

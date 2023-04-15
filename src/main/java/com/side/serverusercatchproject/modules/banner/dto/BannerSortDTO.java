@@ -9,4 +9,5 @@ public record BannerSortDTO(
 
         String color
 ) {
+
 }

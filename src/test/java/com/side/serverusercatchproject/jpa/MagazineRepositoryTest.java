@@ -2,13 +2,10 @@ package com.side.serverusercatchproject.jpa;
 
 import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreInfo;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
-import com.side.serverusercatchproject.modules.magazine.Magazine;
+import com.side.serverusercatchproject.modules.file.enums.FileType;
+import com.side.serverusercatchproject.modules.magazine.entity.Magazine;
+import com.side.serverusercatchproject.modules.magazine.enums.MagazineStatus;
 import com.side.serverusercatchproject.modules.magazine.repository.MagazineRepository;
-import com.side.serverusercatchproject.modules.notice.Notice;
-import com.side.serverusercatchproject.modules.notice.NoticeRepository;
-import com.side.serverusercatchproject.modules.notice.NoticeStatus;
-import com.side.serverusercatchproject.util.status.MagazineStatus;
-import com.side.serverusercatchproject.util.type.FileType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

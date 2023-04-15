@@ -10,4 +10,7 @@ public record BannerEnterpriseSaveRequest(
         @NotBlank(message = "매장 정보를 입력해주세요.")
         EnterpriseStoreInfoDTO store
 ) {
+//        public BannerEnterprise toEntity() {
+//                return new BannerEnterprise(null, bannerSort, store);
+//        }
 }

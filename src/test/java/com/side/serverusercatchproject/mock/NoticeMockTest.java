@@ -2,15 +2,17 @@ package com.side.serverusercatchproject.mock;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.side.serverusercatchproject.modules.notice.*;
+import com.side.serverusercatchproject.modules.notice.controller.NoticeController;
+import com.side.serverusercatchproject.modules.notice.entity.Notice;
+import com.side.serverusercatchproject.modules.notice.enums.NoticeStatus;
 import com.side.serverusercatchproject.modules.notice.request.NoticeSaveRequest;
 import com.side.serverusercatchproject.modules.notice.request.NoticeUpdateRequest;
+import com.side.serverusercatchproject.modules.notice.service.NoticeService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -20,11 +22,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;

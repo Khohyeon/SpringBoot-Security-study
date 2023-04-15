@@ -1,8 +1,10 @@
 package com.side.serverusercatchproject.modules.banner.dto;
 
+import com.side.serverusercatchproject.modules.banner.entity.Banner;
 import com.side.serverusercatchproject.modules.banner.enums.BannerStatus;
 import com.side.serverusercatchproject.modules.file.dto.FileInfoDTO;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
+import com.side.serverusercatchproject.util.StringToLocalDateTime;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToOne;
@@ -21,4 +23,5 @@ public record BannerDTO(
 
         String status
 ) {
+
 }

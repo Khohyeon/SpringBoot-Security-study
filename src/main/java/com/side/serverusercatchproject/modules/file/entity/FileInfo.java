@@ -1,8 +1,9 @@
 package com.side.serverusercatchproject.modules.file.entity;
 
 import com.side.serverusercatchproject.common.jpa.BaseTime;
-import com.side.serverusercatchproject.util.type.FileType;
+import com.side.serverusercatchproject.modules.file.enums.FileType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import org.hibernate.annotations.Comment;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "FILE_INFO_LIST")
 public class FileInfo extends BaseTime {
     @Id

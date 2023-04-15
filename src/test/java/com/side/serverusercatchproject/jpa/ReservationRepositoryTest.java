@@ -1,13 +1,10 @@
 package com.side.serverusercatchproject.jpa;
 
 import com.side.serverusercatchproject.modules.enterprise.entity.EnterpriseStoreInfo;
-import com.side.serverusercatchproject.modules.notice.Notice;
-import com.side.serverusercatchproject.modules.notice.NoticeRepository;
-import com.side.serverusercatchproject.modules.notice.NoticeStatus;
-import com.side.serverusercatchproject.modules.reservation.Reservation;
+import com.side.serverusercatchproject.modules.reservation.entity.Reservation;
 import com.side.serverusercatchproject.modules.reservation.repository.ReservationRepository;
-import com.side.serverusercatchproject.modules.user.User;
-import com.side.serverusercatchproject.util.status.ReservationStatus;
+import com.side.serverusercatchproject.modules.user.entity.User;
+import com.side.serverusercatchproject.modules.reservation.enums.ReservationStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,7 +49,7 @@ public class ReservationRepositoryTest {
     @Test
     @Transactional
     void selectAndUpdate() {
-        var optionalNotices = this.reservationRepository.findById(1);
+        var optionalNotices = this.reservationRepository.findById(4);
 
         if(optionalNotices.isPresent()) {
             var result = optionalNotices.get();

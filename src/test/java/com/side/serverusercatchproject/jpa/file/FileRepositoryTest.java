@@ -2,10 +2,9 @@ package com.side.serverusercatchproject.jpa.file;
 
 import com.side.serverusercatchproject.modules.file.entity.File;
 import com.side.serverusercatchproject.modules.file.entity.FileInfo;
+import com.side.serverusercatchproject.modules.file.enums.FileStatus;
+import com.side.serverusercatchproject.modules.file.enums.FileType;
 import com.side.serverusercatchproject.modules.file.repository.FileRepository;
-import com.side.serverusercatchproject.modules.notice.NoticeRepository;
-import com.side.serverusercatchproject.util.status.FileStatus;
-import com.side.serverusercatchproject.util.type.FileType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,6 @@ import java.util.Optional;
 
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
-
 public class FileRepositoryTest {
 
     @Autowired
@@ -32,8 +30,8 @@ public class FileRepositoryTest {
 
     @BeforeEach
     public void init(){
-        FileInfo fileInfo = setUp1(FileType.Image);
-        setUp(fileInfo, "image", "jsadjwnqjkdnjskandjskandjka", FileStatus.WAIT);
+        FileInfo fileInfo = setUpByFileInfo(FileType.Image);
+        setUpByFile(fileInfo, "image", "jsadjwnqjkdnjskandjskandjka", FileStatus.WAIT);
     }
 
     @Test
@@ -49,7 +47,7 @@ public class FileRepositoryTest {
     @Test
     @Transactional
     void selectAndUpdate() {
-        var optionalFiles = this.fileRepository.findById(1);
+        var optionalFiles = this.fileRepository.findById(4);
 
         if(optionalFiles.isPresent()) {
             var result = optionalFiles.get();
@@ -61,32 +59,31 @@ public class FileRepositoryTest {
 
             Assertions.assertEquals(merge.getFileUrl(),"jsadjwnqjkdnjskandjskandjka111");
         } else {
-            Assertions.assertNotNull(optionalFiles.get().getFileUrl());
+            Assertions.assertNotNull(optionalFiles.get());
         }
     }
 
-//    @Test
-//    @Transactional
-//    void insertAndDelete() {
-//        FileInfo fileInfo = setUp(FileType.Image);
-//        Optional<FileInfo> findNotice = this.fileInfoRepository.findById(fileInfo.getId());
-//
-//        if(findNotice.isPresent()) {
-//            var result = findNotice.get();
-//            Assertions.assertEquals(result.getType(), FileType.Image);
-//            entityManager.remove(fileInfo);
-//            Optional<FileInfo> deleteFileInfo = this.fileInfoRepository.findById(fileInfo.getId());
-//            if (deleteFileInfo.isPresent()) {
-//                Assertions.assertNull(deleteFileInfo.get());
-//            }
-//        } else {
-//            Assertions.assertNotNull(findNotice.get());
-//        }
-//    }
+    @Test
+    @Transactional
+    void insertAndDelete() {
+        FileInfo fileInfo = setUpByFileInfo(FileType.Image);
+        File file = setUpByFile(fileInfo, "image", "jsadjwnqjkdnjskandjskandjka", FileStatus.WAIT);
+        Optional<File> findFile = this.fileRepository.findById(file.getId());
 
+        if(findFile.isPresent()) {
+            var result = findFile.get();
+            Assertions.assertEquals(result.getFileName(), "image");
+            entityManager.remove(file);
+            Optional<File> deleteFile = this.fileRepository.findById(file.getId());
+            if (deleteFile.isPresent()) {
+                Assertions.assertNull(deleteFile.get());
+            }
+        } else {
+            Assertions.assertNotNull(findFile.get());
+        }
+    }
 
-
-    private File setUp(FileInfo fileInfo, String fileName, String fileUrl, FileStatus status) {
+    private File setUpByFile(FileInfo fileInfo, String fileName, String fileUrl, FileStatus status) {
         var file = new File();
         file.setFileInfo(fileInfo);
         file.setFileName(fileName);
@@ -95,9 +92,15 @@ public class FileRepositoryTest {
         return this.entityManager.persist(file);
     }
 
-    private FileInfo setUp1(FileType fileType) {
+    private FileInfo setUpByFileInfo(FileType fileType) {
         var fileInfo = new FileInfo();
         fileInfo.setType(fileType);
         return this.entityManager.persist(fileInfo);
+    }
+
+     File createFileInfo() {
+        FileInfo fileInfo = setUpByFileInfo(FileType.Image);
+        File file = setUpByFile(fileInfo, "image", "jsadjwnqjkdnjskandjskandjka", FileStatus.WAIT);
+        return file;
     }
 }
